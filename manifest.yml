@@ -1,0 +1,5 @@
+---
+applications:
+- name: cfenv
+  memory: 20M
+  command: ruby ./app.rb
