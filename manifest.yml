@@ -1,5 +1,5 @@
 ---
 applications:
 - name: cwest-cfenv
-  memory: 20M
+  memory: 50M
   command: ruby ./app.rb
