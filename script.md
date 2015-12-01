@@ -5,7 +5,7 @@ cf push
 open http://cfenv.bosh-lite.com/
 
 git checkout enterprise-features
-cf create-service p-redis shared-vm cfenv-redis
+cf create-service redis shared-vm cfenv-redis
 cf bind-service cfenv cfenv-redis
 cf push
 open http://cfenv.bosh-lite.com/
