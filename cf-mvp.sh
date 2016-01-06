@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x
+set -ex
 
 #   ____ _                 _ _____                     _              __  ____     ______  
 #  / ___| | ___  _   _  __| |  ___|__  _   _ _ __   __| |_ __ _   _  |  \/  \ \   / /  _ \ 
@@ -11,10 +11,11 @@ set -x
 # Prerequisites and Assumptions
 #
 # 1. Tested on a mac with up-to-date operating system and XCode installed.
-# 2. Modern vagrant and VitualBox installed.
+# 2. Modern vagrant and VirtualBox installed.
 # 3. git installed.
 # 4. A modern ruby installed (via rbenv, rvm, or similar).
 
+VM_MEMORY=8192 # 10G of Memory, yo.
 WORKSPACE=$(mktemp -d $HOME/cf-workspace-XXXX)
 STEMCELL_VERSION=2776
 REDIS_VERSION=424
@@ -42,11 +43,7 @@ vagrant up
 bin/add-route # will require sudo
 
 gem install bosh_cli bosh_cli_plugin_micro --no-ri --no-rdoc
-sleep 10
-bosh target 192.168.50.4 lite
-sleep 10
-bosh target 192.168.50.4 lite
-sleep 10
+sleep 30 # I know. :hugs:
 bosh target 192.168.50.4 lite
 
 bosh upload stemcell "https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent?v=$STEMCELL_VERSION"
