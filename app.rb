@@ -39,6 +39,11 @@ set :port, ENV['PORT'] || 4567
 get '/' do
   json(
   	instance: ENV['CF_INSTANCE_INDEX'],
-  	visits:   Analytics.instance.visit!
+  	visits:   Analytics.instance.visit!,
+  	goto: '🍺'
   )
+end
+
+get '/ouch' do
+	Process.exit!(true)
 end

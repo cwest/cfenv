@@ -3,3 +3,5 @@ applications:
 - name: cwest-cfenv
   memory: 50M
   command: ruby ./app.rb
+  services:
+    - cwest-cfenv-redis
