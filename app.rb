@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'sinatra/contrib'
-require 'cf-app-utils'
 require 'redis'
 require 'singleton'
 
@@ -14,18 +13,10 @@ class Analytics
   end
 
   def redis_creds
-    begin
-      creds = CF::App::Credentials
-        .find_all_by_all_service_tags(['redis', 'pivotal'])
-        .first
-      return {
-        host:     creds.fetch('host'),
-        port:     creds.fetch('port'),
-        password: creds.fetch('password')
-      }
-    rescue
-      {}
-    end
+    return {
+      host: ENV['REDIS_SERVICE_HOST'],
+      port: ENV['REDIS_SERVICE_PORT']
+    }
   end
 
   def visit!
@@ -38,7 +29,11 @@ set :port, ENV['PORT'] || 4567
 
 get '/' do
   json(
-  	instance: ENV['CF_INSTANCE_INDEX'],
+    instance: ENV['HOSTNAME'],
   	visits:   Analytics.instance.visit!
   )
+end
+
+get '/ouch' do
+  Process.exit!(true)
 end

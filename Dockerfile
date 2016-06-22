@@ -12,7 +12,7 @@ RUN cd /tmp \
 	&& make install \
 	&& cd - \
 	&& rm -rf /tmp/v0.5.0.tar.gz /tmp/ruby-install-0.5.0 \
-	&& apk add -t ruby-deps libc-dev=0.7-r0 readline-dev=6.3.008-r0 libffi-dev=3.2.1-r0 \
+	&& apk add -t ruby-deps libc-dev=0.7-r0 readline-dev=6.3.008-r0 libffi-dev=3.2.1-r2 \
        "openssl-dev>1.0.2" gdbm-dev=1.11-r0 zlib-dev=1.2.8-r1 bash=4.3.33-r0 \
     && ruby-install ruby $RUBY_VERSION -- --disable-install-rdoc \
     #&& apk del build-base ruby-deps \

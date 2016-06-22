@@ -6,5 +6,4 @@ gem 'puma'
 gem 'sinatra'
 gem 'sinatra-contrib'
 
-gem 'cf-app-utils'
 gem 'redis'

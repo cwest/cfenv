@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: cfenv
+  labels:
+    name: cfenv
+spec:
+  replicas: 3
+  selector:
+    name: cfenv
+  template:
+    metadata:
+      labels:
+        name: cfenv
+    spec:
+      containers:
+      - name: cfenv
+        image: caseywest/cfenv-docker:kube-enterprise-features
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 4567
