@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: cfenv
-        image: caseywest/cfenv-docker:master
+        image: caseywest/cfenv-docker:kube-master
         ports:
           - containerPort: 4567
