@@ -4,5 +4,6 @@ applications:
   instances: 3
   memory: 50M
   command: ruby ./app.rb
+  buildpack: ruby_buildpack
   services:
     - cwest-cfenv-redis
