@@ -15,7 +15,6 @@ spec:
     spec:
       containers:
       - name: cfenv
-        image: caseywest/cfenv-docker:kube-enterprise-features
-        imagePullPolicy: Always
+        image: caseywest/cfenv-docker:kube-enterprise-features        
         ports:
           - containerPort: 4567
