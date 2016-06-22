@@ -1,7 +1,7 @@
 ---
 applications:
 - name: cwest-cfenv
-  instances: 6
+  instances: 3
   memory: 50M
   command: ruby ./app.rb
   services:
